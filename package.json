@@ -12,6 +12,7 @@
   "dependencies": {
     "alert": "^5.0.10",
     "express": "^4.17.1",
-    "http": "^0.0.1-security"
+    "http": "^0.0.1-security",
+    "socket.io": "^4.0.2"
   }
 }
