@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-http.listen(ports, function () {
+app.listen(ports, function () {
     
     console.log('Node app is working!');
 });
