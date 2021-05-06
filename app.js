@@ -29,6 +29,6 @@ app.get('/', function (req, res) {
 
 
 
-http.listen(8080, function(){
+app.listen(8080, function(){
 console.log('💥 YOUR WEBSOCKET IS RUNING 💥');
 });
