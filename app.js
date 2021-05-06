@@ -1,11 +1,7 @@
-var express = require('express');
-var app = express();
+var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var path = require('path');
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+
 
 				io.on('connection', function(socket){
 				console.log('NEW USER CONNECTED !');
@@ -23,9 +19,6 @@ app.get('/', function (req, res) {
 				io.sockets.in(myroom).emit('msg',{message: data.message,room: data.room,name :data.name});	    			    		
 				});
 				});
-
-
-
 
 
 
