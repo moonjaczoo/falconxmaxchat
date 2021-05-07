@@ -7,9 +7,9 @@ var port = process.env.PORT || 1111
 app.use(express.static(__dirname + "/"));
 
 var server = http.createServer(app);
-server.listen(port);
+server.listen(1111);
 
-console.log("http server listening on %d", port);
+console.log("http server listening on %d", 1111);
 
 var wss = new WebSocketServer({server: server});
 console.log("websocket server created");
