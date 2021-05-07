@@ -1,27 +1,34 @@
 <html>
-    <head>
-        <style>
-            input, button { padding: 10px; }
-        </style>
-    </head>
-    <body>
-        <input type="text" id="message" />
-        <button onclick="transmitMessage()">Send</button>
-        <script>
-            var port = process.env.PORT || 1111;
-            // Create a new WebSocket.
-            var socket  = new WebSocket('ws://localhost:'+port.toString());
+  <head>
+    <style>
+      body {
+        font-family: "Helvetica Neue", helvetica, arial;
+        padding: 15px;
+      }
 
-            // Define the 
-            var message = document.getElementById('message');
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
 
-            function transmitMessage() {
-                socket.send( message.value );
-            }
+      ul li {
+        line-height: 1.4;
+      }
+    </style>
 
-            socket.onmessage = function(e) {
-                alert( e.data );
-            }
-        </script>
-    </body>
+    <script>
+      var host = location.origin.replace(/^https/, 'ws')
+      var ws = new WebSocket(host);
+      ws.onmessage = function (event) {
+        var li = document.createElement('li');
+        li.innerHTML = JSON.parse(event.data);
+        document.querySelector('#pings').appendChild(li);
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Pings</h1>
+    <ul id='pings'></ul>
+  </body>
 </html>
