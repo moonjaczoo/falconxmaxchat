@@ -8,8 +8,9 @@
         <input type="text" id="message" />
         <button onclick="transmitMessage()">Send</button>
         <script>
+            var port = process.env.PORT || 1111;
             // Create a new WebSocket.
-            var socket  = new WebSocket('ws://localhost:1111');
+            var socket  = new WebSocket('ws://localhost:'+port.toString());
 
             // Define the 
             var message = document.getElementById('message');
