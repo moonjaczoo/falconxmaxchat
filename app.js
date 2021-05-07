@@ -18,6 +18,7 @@ wss.on("connection", function(ws) {
  console.log("websocket connection open");
   ws.on("message", function(msg) {
     console.log(msg);
+    ws.send(msg);
   });
   ws.on("close", function() {
     console.log("websocket connection close");
